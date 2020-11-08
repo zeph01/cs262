@@ -33,13 +33,24 @@ router.get("/players/:id", readPlayer);
 router.put("/players/:id", updatePlayer);
 router.post('/players', createPlayer);
 router.delete('/players/:id', deletePlayer);
-router.get("/winner", readWinner);
+router.get("/game1",readGame1);
 
 app.use(router);
 app.use(errorHandler);
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // Implement the CRUD operations.
+
+//Retrieve all from Game1
+function readGame1(req, res, next) {
+    db.many("SELECT * FROM PlayerGame, Player, Game WHERE Game.ID = 1 AND Game.ID = gameID AND Player.ID = playerID")
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            next(err);
+        })
+}
 
 function errorHandler(err, req, res) {
     if (app.get('env') === "development") {
@@ -62,17 +73,6 @@ function readHelloMessage(req, res) {
 
 function readPlayers(req, res, next) {
     db.many("SELECT * FROM Player")
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            next(err);
-        })
-}
-
-//Retrieve the name of the winner of the game played on 2006-06-28 13:20:00.
-function readWinner(req, res, next) {
-    db.many("SELECT name FROM PlayerGame, Player, Game WHERE time = '2006-06-28 13:20:00' AND Game.ID = gameID AND Player.ID = playerID ORDER BY score DESC LIMIT 1")
         .then(data => {
             res.send(data);
         })

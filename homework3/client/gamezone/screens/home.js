@@ -8,7 +8,7 @@ export default function Home({ navigation }) {
     const [data, setData] = useState([]);
   
     useEffect(() => {
-      fetch('https://arcane-gorge-03843.herokuapp.com/winner')
+      fetch('https://dry-forest-85797.herokuapp.com/game1')
           .then((response) => response.json())
           .then((json) => setData(json))
           .catch((error) => console.error(error))
@@ -17,10 +17,12 @@ export default function Home({ navigation }) {
 
     return (
         <View style={globalStyles.container}>
+            <Text style={{alignSelf: 'center'}}>Game1 Players</Text>
+            <Text style={{alignSelf: 'center'}}>(Click on each player for details)</Text>
             <FlatList data={data} renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails', item)}>
                     <Card>
-                        <Text style={globalStyles.titleText}>{item.emailaddress}</Text>
+                        <Text style={globalStyles.titleText}>{item.name}</Text>
                     </Card>
                 </TouchableOpacity>
             )} />
