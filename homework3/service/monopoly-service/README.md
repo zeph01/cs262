@@ -18,12 +18,12 @@ router.post('/players', createPlayer); //not idempotent or nullipotent
 router.delete('/players/:id', deletePlayer); //idempotent
 router.get("/game1",readGame1); //nullipotent
 
-Is the service RESTful? If not, why not? If so, what key features make it RESTful.
+3. Is the service RESTful? If not, why not? If so, what key features make it RESTful.
 This service is RESTful because it uses Https; it is stateless since it does not track visits; 
 it gives structured urls and also transfers data as a "json."
 
 
-Is there any evidence in your implementation of an impedance mismatch?
+4. Is there any evidence in your implementation of an impedance mismatch?
 No, there is no impedence mismatch because I could retrieve data in the same data type that I needed them to be.
 
 
