@@ -1,0 +1,44 @@
+Team H - Following Coding Standards and Recommendations
+
+Buddies:
+Reformatted static data
+Removed the StyleSheet
+Did not change the require keyword in getting images.
+
+Buddy Details:
+No longer importing Flatlist and TextInput.
+Reformatted static data
+No change to empty xml body
+
+Edit Profile:
+No longer importing StyleSheet, TextInput, Button.
+Deleting material icons
+No change to empty xml body
+
+Habit Track:
+No longer importing Flatlist or Touchable Opacity
+Removing card and global styles imports
+
+Home:
+No longer importing Flatlist
+Did not change var
+Kept text block for spacing
+
+Profile:
+No change to empty xml body
+
+Selection Block:
+changed duplicate arguments
+combined style attribute
+
+Circle card:
+removed duplicate elevation
+
+Profile card:
+removing unused arguments
+
+Profile Linking card:
+removing unused arguments
+
+Global styles:
+Not deleting the dark theme (because yet to be completely implemented)
